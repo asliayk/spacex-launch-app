@@ -1,0 +1,47 @@
+
+query searchLaunch($name:String!) {
+    launches(find: {mission_name: $name}) {
+        id
+        details
+        launch_site {
+            site_name_long
+        }
+        launch_date_local
+        launch_date_unix
+        launch_date_utc
+        launch_success
+        links {
+            article_link
+            video_link
+            wikipedia
+            flickr_images
+        }
+        mission_name
+        mission_id
+        rocket {
+            rocket_name
+            rocket_type
+            rocket {
+                description
+                country
+                mass {
+                    kg
+                    lb
+                }
+                name
+                active
+                company
+                type
+                height {
+                    meters
+                }
+            }
+        }
+        ships {
+            id
+            model
+            name
+        }
+    }
+}
+
